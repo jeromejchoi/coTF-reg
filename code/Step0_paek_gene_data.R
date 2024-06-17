@@ -2,13 +2,13 @@
 library(readxl)
 library(dplyr)
 
-peak_gene <- read_excel("/Users/jeromechoi/Documents/jerome/Documents/WISC/BMI/Daifeng Wang/Oligo Project/Data/Panos/adg3754_Tables_S1_to_S14 3.xlsx", sheet = 4)
+peak_gene <- read_excel("/adg3754_Tables_S1_to_S14 3.xlsx", sheet = 4)
 peak_gene <- data.frame(peak_gene[-c(1,2),])
 colnames(peak_gene) <- c("correlation","gene","peak","zscore","pvalue","pvalue.fdr")
 dim(peak_gene) #7291 edges
 length(unique(peak_gene$gene)) # 3082 unique TGs
 
-diff_peaks <- read_excel("/Users/jeromechoi/Documents/jerome/Documents/WISC/BMI/Daifeng Wang/Oligo Project/Data/Panos/adg3754_Tables_S1_to_S14 3.xlsx", sheet = 3)
+diff_peaks <- read_excel("/adg3754_Tables_S1_to_S14 3.xlsx", sheet = 3)
 diff_peaks <- data.frame(diff_peaks[-c(1,2),])
 colnames(diff_peaks) <- c("p_val",	"avg_log2FC",	"pct.1",	"pct.2",	"p_val_adj",	"celltype",	"peak")
 
@@ -44,7 +44,7 @@ summary(Group1_df$length)
 length(unique(Group1_df$gene))
 hist(as.numeric(Group1_df$correlation))
 
-write.csv(Group1_df, "/Users/jeromechoi/Documents/jerome/Documents/WISC/BMI/Daifeng Wang/Oligo Project/Pipeline/chromatin_interaction/Group1_df.csv", row.names = F)
+write.csv(Group1_df, "/Group1_df.csv", row.names = F)
 
 Group2 <- oligo_peak_gene[!oligo_peak_gene$gene %in% count_group1_TGs$gene,]
 dim(Group2)
@@ -54,7 +54,7 @@ hist(as.numeric(Group2$correlation))
 
 Group2_df <- Group2
 
-write.csv(Group2_df, "/Users/jeromechoi/Documents/jerome/Documents/WISC/BMI/Daifeng Wang/Oligo Project/Pipeline/chromatin_interaction/Group2.csv",row.names = F)
+write.csv(Group2_df, "/Group2.csv",row.names = F)
 
 "OLIG2" %in% count_group_list$gene
 
@@ -67,7 +67,7 @@ write.csv(Group2_df, "/Users/jeromechoi/Documents/jerome/Documents/WISC/BMI/Daif
 # Group 5: All peaks overlap with Bing Ren peaks
 # Group 6: Oligo-diff peaks overlap with Bing Ren peak
 
-Group2_df <- read.csv("/Users/jeromechoi/Documents/jerome/Documents/WISC/BMI/Daifeng Wang/Oligo Project/Pipeline/chromatin_interaction/Group2.csv")
+Group2_df <- read.csv("/Group2.csv")
 dim(Group2_df)
 
 library(dplyr);library(tidyr)
@@ -82,7 +82,7 @@ summary(Group2_df_check$end - Group2_df_check$start)
 hist(Group2_df_check$end - Group2_df_check$start)
 
 
-Group1_df <- read.csv("/Users/jeromechoi/Documents/jerome/Documents/WISC/BMI/Daifeng Wang/Oligo Project/Pipeline/chromatin_interaction/Group1_df.csv")
+Group1_df <- read.csv("/Group1_df.csv")
 dim(Group1_df)
 
 library(dplyr);library(tidyr)
