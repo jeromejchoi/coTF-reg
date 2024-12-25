@@ -1,4 +1,4 @@
-# Single-cell multi-omics analysis reveals cooperative transcription factors for gene regulation in oligodendrocytes
+# coTF-reg: Single-cell multi-omics analysis reveals cooperative transcription factors for gene regulation in oligodendrocytes
 
 Oligodendrocytes are the myelinating cells within the central nervous system. Many genes expressed in oligodendrocytes have been associated with brain disorders, and are controlled by complex gene regulatory mechanisms involving several transcription factors (TFs). Individual TFs play important roles, but gene regulation depends on the coordinate action of TF’s that  co-regulate gene expression from regulatory elements in promoters and enhancers. While some instances of co-regulation have been identified, the regulatory mechanisms of cooperative TFs in oligodendrocytes remain largely uncharacterized.
 
